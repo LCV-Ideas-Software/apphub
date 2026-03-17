@@ -6,6 +6,10 @@ on:
     branches:
       - production # Trigger de automação ajustado para a branch production
 
+# 🛡️ Hotfix v3.01.01: Força os runners do GitHub a usarem a arquitetura moderna (Node 24)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
