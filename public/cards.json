@@ -24,9 +24,9 @@
   ],
   "restricted": [
     {
-      "name": "Gerador de IDs & MTA-STS",
+      "name": "MTA-STS ADMIN",
       "description": "Ferramenta administrativa para geração e gestão de identificadores e políticas.",
-      "url": "https://gerador-ids.lcv.app.br",
+      "url": "https://mtasts-admin.lcv.app.br",
       "icon": "🔐",
       "badge": "Autenticar"
     },
