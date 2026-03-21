@@ -1,6 +1,13 @@
 {
   "open": [
     {
+      "name": "Divagações Filosóficas",
+      "description": "Publicações sobre temas científico-religio-filosóficos",
+      "url": "https://www.lcv.rio.br",
+      "icon": "✨",
+      "badge": "Abrir Site"
+    },
+    {
       "name": "Mapa Astral",
       "description": "Cálculo de mapas baseados no Zodíaco Tropical e no Astronômico Realista.",
       "url": "https://mapa-astral.lcv.app.br",

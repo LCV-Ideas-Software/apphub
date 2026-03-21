@@ -1,4 +1,5 @@
 const SAFE_PROTOCOLS = new Set(["https:"]);
+const APP_VERSION = "v02.15.0";
 
 /**
  * @param {string} url
@@ -131,8 +132,16 @@ function setYear() {
     }
 }
 
+function setAppVersion() {
+    const versionNode = document.getElementById("hub-version-text");
+    if (versionNode) {
+        versionNode.textContent = APP_VERSION;
+    }
+}
+
 async function init() {
     setYear();
+    setAppVersion();
 
     try {
         const sections = await loadCards();
