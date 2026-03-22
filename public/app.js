@@ -1,5 +1,9 @@
+// Módulo: apphub/public/app.js
+// Versão: v03.01.00
+// Descrição: Catálogo público de apps — carrega cards.json e renderiza cards com validação.
+
 const SAFE_PROTOCOLS = new Set(["https:"]);
-const APP_VERSION = "v03.0.0";
+const APP_VERSION = 'APP v03.01.00';
 
 /**
  * @param {string} url
