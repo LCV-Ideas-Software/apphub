@@ -1,13 +1,16 @@
-# .github/workflows/deploy.yml
-name: Deploy Automático para Cloudflare Pages
+name: Deploy
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   WRANGLER_VERSION: "latest"
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -17,11 +20,9 @@ jobs:
       deployments: write
 
     steps:
-      - name: Checkout do código-fonte
-        uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v6.0.2
 
-      - name: Deploy no Cloudflare Pages
-        run: npx wrangler@${WRANGLER_VERSION} pages deploy public --project-name=apphub --branch=production
+      - run: npx wrangler@${WRANGLER_VERSION} pages deploy public --project-name=apphub --branch=production
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
