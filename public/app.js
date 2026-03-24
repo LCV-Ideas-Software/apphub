@@ -98,7 +98,6 @@ async function loadCards() {
         }
     }
 }
-}
 
 /**
  * @param {{name: string, description: string, url: string, icon: string, badge: string}} app
