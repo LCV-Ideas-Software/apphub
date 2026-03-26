@@ -1,5 +1,16 @@
 # Changelog — AppHub
 
+## [v03.04.00] — 2026-03-26
+### UI/UX Redesign — tiptap.dev Style (Google Blue)
+- **Design Tokens**: paleta primária de `#8ab4f8` (light blue) para `#1a73e8` (Google Blue). Background `#f5f4f4` (warm gray). Texto `#0d0d0d`. Bordas warm `rgba(0,0,0,0.08)`.
+- **Tipografia**: `Inter` via Google Fonts.
+- **Superfícies**: glassmorphism `backdrop-filter` removido → sólido branco limpo. Shadows de `0 10px 30px` → `0 1px 3px`.
+- **Hero/Footer**: pill-shaped (`border-radius: 100px`).
+- **Cards**: radius `1rem` → `30px`. Hover sutil. Card-icon com background `rgba(26,115,232,0.08)`.
+- **Orbs de fundo**: opacidade 0.55 → 0.25, blur 88px → 100px (mais sutis e clean).
+- **Favicon**: custom admin SVG (gear+monitor, Google Blue).
+- **WCAG/eMAG**: focus-visible `#1a73e8`, skip-link, reduced-motion preservados. Dark mode com `#16171d` / `#d1d5db`.
+
 ## [v03.03.01] — 2026-03-24
 ### Alterado
 - `public/_headers` atualizado para política CSP estável em runtime (`script-src` com `'unsafe-inline'`), eliminando dependência de hash inline volátil.

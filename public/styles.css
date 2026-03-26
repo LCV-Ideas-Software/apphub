@@ -1,13 +1,23 @@
+/* ======================================================================
+   AppHub — tiptap.dev Design System (Google Blue)
+   WCAG 2.1 AA + eMAG compliant
+   ====================================================================== */
+
 :root {
-    --md-sys-color-primary: #8ab4f8;
-    --md-sys-color-on-surface: #1f2937;
-    --md-sys-color-surface: rgba(246, 249, 255, 0.72);
-    --md-sys-color-surface-container: rgba(255, 255, 255, 0.84);
-    --md-sys-color-outline: rgba(138, 180, 248, 0.38);
-    --md-sys-color-shadow: rgba(24, 32, 56, 0.2);
-    --radius-md: 1rem;
-    --bar-padding-y: 0.8rem;
-    --bar-padding-x: 1rem;
+    --color-primary: #1a73e8;
+    --color-primary-light: rgba(26, 115, 232, 0.1);
+    --color-on-surface: #0d0d0d;
+    --color-on-surface-muted: #514b48;
+    --color-surface: #ffffff;
+    --color-surface-container: #ffffff;
+    --color-bg: #f5f4f4;
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-shadow: rgba(0, 0, 0, 0.04);
+    --radius-card: 30px;
+    --radius-pill: 100px;
+    --radius-bar: 100px;
+    --bar-padding-y: 0.75rem;
+    --bar-padding-x: 1.25rem;
     --bar-min-height: 3rem;
     --bar-font-size: 0.82rem;
     --easing: cubic-bezier(0.2, 0, 0, 1);
@@ -15,11 +25,13 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --md-sys-color-on-surface: #e8eaed;
-        --md-sys-color-surface: rgba(23, 28, 39, 0.74);
-        --md-sys-color-surface-container: rgba(30, 36, 49, 0.84);
-        --md-sys-color-outline: rgba(138, 180, 248, 0.4);
-        --md-sys-color-shadow: rgba(0, 0, 0, 0.45);
+        --color-on-surface: #d1d5db;
+        --color-on-surface-muted: #9ca3af;
+        --color-surface: #1e1f26;
+        --color-surface-container: #25262e;
+        --color-bg: #16171d;
+        --color-border: rgba(255, 255, 255, 0.1);
+        --color-shadow: rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -30,23 +42,29 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--md-sys-color-on-surface);
-    background: radial-gradient(circle at 18% 12%, #dbe7ff 0%, #eee4ff 36%, #f7f9ff 100%);
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--color-on-surface);
+    background: var(--color-bg);
     padding: clamp(1rem, 3vw, 2rem);
     position: relative;
     overflow-x: hidden;
 }
 
+img, svg, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Accessibility ── */
 .skip-link {
     position: absolute;
     left: -999px;
     top: 0.75rem;
     z-index: 999;
-    background: #1d1b20;
+    background: #1a73e8;
     color: #ffffff;
     padding: 0.55rem 0.8rem;
-    border-radius: 0.6rem;
+    border-radius: var(--radius-pill);
     text-decoration: none;
     font-weight: 700;
 }
@@ -55,13 +73,20 @@ body {
     left: 0.75rem;
 }
 
+:focus-visible {
+    outline: 3px solid #1a73e8;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ── Background orbs (tiptap.dev subtle warm tones) ── */
 .bg-orb {
     position: fixed;
     z-index: -1;
-    filter: blur(88px);
-    opacity: 0.55;
+    filter: blur(100px);
+    opacity: 0.25;
     border-radius: 999px;
-    animation: float 11s var(--easing) infinite alternate;
+    animation: float 14s var(--easing) infinite alternate;
 }
 
 .orb-1 {
@@ -69,7 +94,7 @@ body {
     height: 24rem;
     top: -8rem;
     left: -7rem;
-    background: #4f8cff;
+    background: #1a73e8;
 }
 
 .orb-2 {
@@ -77,7 +102,7 @@ body {
     height: 28rem;
     bottom: -10rem;
     right: -8rem;
-    background: #9b7cff;
+    background: #8ab4f8;
 }
 
 .orb-3 {
@@ -85,40 +110,35 @@ body {
     height: 21rem;
     top: 42%;
     left: 28%;
-    background: #8fd3ff;
-    opacity: 0.42;
+    background: #1a73e8;
+    opacity: 0.15;
 }
 
 @keyframes float {
-    from {
-        transform: translate(0, 0) scale(1);
-    }
-
-    to {
-        transform: translate(18px, 18px) scale(1.07);
-    }
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(12px, 12px) scale(1.04); }
 }
 
+/* ── Layout ── */
 .layout {
-    width: min(1120px, 100%);
+    width: min(960px, 100%);
     margin: 0 auto;
     display: grid;
     gap: 1.5rem;
 }
 
+/* ── Surfaces ── */
 .md3-surface {
-    background: var(--md-sys-color-surface);
-    border: 1px solid var(--md-sys-color-outline);
-    box-shadow: 0 10px 30px var(--md-sys-color-shadow);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px var(--color-shadow);
 }
 
-.glass {
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    backdrop-filter: blur(18px) saturate(140%);
-}
+/* tiptap.dev: clean solid surfaces — no heavy glassmorphism */
 
+/* ── Hero bar ── */
 .hero {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-bar);
     padding: var(--bar-padding-y) var(--bar-padding-x);
     display: flex;
     align-items: center;
@@ -129,13 +149,15 @@ body {
 
 .hero h1 {
     margin: 0;
-    font-size: clamp(0.9em, 1.25em, 1.35em);
+    font-size: clamp(0.88em, 1.1em, 1.2em);
     line-height: 1.25;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     text-align: center;
     overflow-wrap: anywhere;
+    font-weight: 600;
 }
 
+/* ── Catalog section ── */
 .catalog {
     display: grid;
     gap: 0.8rem;
@@ -148,11 +170,14 @@ body {
     flex-wrap: wrap;
     gap: 0.5rem;
     line-height: 1.3;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-on-surface-muted);
 }
 
+/* ── Status dot ── */
 .status-dot {
     width: 0.6rem;
     height: 0.6rem;
@@ -166,17 +191,16 @@ body {
     background: #10b981;
 }
 
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.38);
-    }
-
-    100% {
-        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-    }
+.status-dot.restricted {
+    background: #f43f5e;
 }
 
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.38); }
+    100% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+
+/* ── Card grid ── */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -188,85 +212,95 @@ body {
     display: grid;
     gap: 0.7rem;
     min-height: 196px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     text-decoration: none;
     color: inherit;
-    padding: 1rem;
-    border: 1px solid var(--md-sys-color-outline);
-    background: var(--md-sys-color-surface-container);
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-container);
     overflow: hidden;
-    -webkit-tap-highlight-color: rgba(138, 180, 248, 0.22);
+    -webkit-tap-highlight-color: rgba(26, 115, 232, 0.12);
     touch-action: manipulation;
-    transition: transform 220ms var(--easing), box-shadow 220ms var(--easing), border-color 220ms var(--easing);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover,
 .card:focus-visible {
-    transform: translateY(-4px);
-    border-color: rgba(138, 180, 248, 0.7);
-    box-shadow: 0 14px 32px var(--md-sys-color-shadow);
+    transform: translateY(-3px);
+    border-color: rgba(26, 115, 232, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     outline: none;
 }
 
 .card:focus-visible {
-    outline: 2px solid rgba(138, 180, 248, 0.95);
+    outline: 3px solid #1a73e8;
     outline-offset: 2px;
 }
 
+/* ── Card icon ── */
 .card-icon {
-    width: 3.1rem;
-    height: 3.1rem;
+    width: 2.75rem;
+    height: 2.75rem;
     flex-shrink: 0;
-    border-radius: 1rem;
-    font-size: 1.45rem;
+    border-radius: 14px;
+    font-size: 1.35rem;
     display: grid;
     place-items: center;
-    background: linear-gradient(140deg, rgba(138, 180, 248, 0.28), rgba(197, 138, 249, 0.14));
-    transition: transform 220ms var(--easing);
+    background: rgba(26, 115, 232, 0.08);
+    transition: transform 0.15s ease;
 }
 
 .card:hover .card-icon,
 .card:focus-visible .card-icon {
-    transform: scale(1.08) translateY(-1px);
+    transform: scale(1.06);
 }
 
+/* ── Card text ── */
 .card-title {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .card-desc {
     margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.82;
+    font-size: 0.85rem;
+    color: var(--color-on-surface-muted);
+    line-height: 1.5;
 }
 
+/* ── Card badge ── */
 .card-badge {
     margin-top: auto;
     display: inline-flex;
     width: fit-content;
     max-width: 100%;
-    border-radius: 999px;
-    padding: 0.25rem 0.55rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    border-radius: var(--radius-pill);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     white-space: normal;
     overflow-wrap: anywhere;
 }
 
 .card[data-level="open"] .card-badge {
-    background: rgba(16, 185, 129, 0.14);
+    background: rgba(16, 185, 129, 0.1);
     color: #047857;
 }
 
+.card[data-level="restricted"] .card-badge {
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+}
 
+/* ── Footer ── */
 .app-footer {
-    width: min(1120px, 100%);
-    margin: 1.2rem auto 0;
-    border-radius: var(--radius-md);
+    width: min(960px, 100%);
+    margin: 1rem auto 0;
+    border-radius: var(--radius-bar);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -275,6 +309,7 @@ body {
     padding: var(--bar-padding-y) var(--bar-padding-x);
     min-height: var(--bar-min-height);
     font-size: var(--bar-font-size);
+    color: var(--color-on-surface-muted);
 }
 
 .app-footer p {
@@ -286,26 +321,29 @@ body {
 
 .app-version {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    letter-spacing: 0.11em;
-    border-radius: 0.6rem;
-    border: 1px solid var(--md-sys-color-outline);
-    padding: 0.25rem 0.5rem;
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.55rem;
+    font-size: 0.72rem;
 }
 
+/* ── Noscript fallback ── */
 .noscript-fallback {
     padding: 1rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
 }
 
-.noscript-fallback p {
-    margin: 0;
+.noscript-fallback p { margin: 0; }
+
+.noscript-fallback a {
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
-
+/* ── Accessibility: reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -313,33 +351,27 @@ body {
     }
 }
 
+/* ── Responsive ── */
 @media (max-width: 720px) {
     :root {
-        --bar-padding-y: 0.75rem;
-        --bar-padding-x: 0.85rem;
+        --bar-padding-y: 0.7rem;
+        --bar-padding-x: 1rem;
         --bar-min-height: 2.75rem;
     }
 
-    body {
-        padding: 0.75rem;
-    }
-
-    .layout {
-        gap: 1rem;
-    }
+    body { padding: 0.75rem; }
+    .layout { gap: 1rem; }
 
     .hero {
         padding: var(--bar-padding-y) var(--bar-padding-x);
         min-height: var(--bar-min-height);
     }
 
-    .hero h1 {
-        line-height: 1.25;
-    }
+    .hero h1 { line-height: 1.25; }
 
     .catalog h2 {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
     }
 
     .card-grid {
@@ -350,16 +382,13 @@ body {
 
     .card {
         min-height: 44px;
-        padding: 0.9rem;
+        padding: 1rem;
         width: 100%;
         min-width: 0;
         max-width: 100%;
     }
 
-    .card-title,
-    .card-desc {
-        overflow-wrap: anywhere;
-    }
+    .card-title, .card-desc { overflow-wrap: anywhere; }
 
     .app-footer {
         width: 100%;
@@ -371,19 +400,14 @@ body {
         gap: 0.45rem;
     }
 
-    .app-footer p {
-        min-width: 0;
-    }
-
-    .app-version {
-        flex-shrink: 0;
-    }
+    .app-footer p { min-width: 0; }
+    .app-version { flex-shrink: 0; }
 }
 
 @media (max-width: 420px) {
     :root {
-        --bar-padding-y: 0.7rem;
-        --bar-padding-x: 0.78rem;
+        --bar-padding-y: 0.65rem;
+        --bar-padding-x: 0.85rem;
         --bar-min-height: 2.6rem;
     }
 
@@ -392,52 +416,37 @@ body {
         min-height: var(--bar-min-height);
     }
 
-    .card-title {
-        font-size: 0.95rem;
-    }
-
-    .card-desc {
-        font-size: 0.85rem;
-    }
+    .card-title { font-size: 0.92rem; }
+    .card-desc { font-size: 0.82rem; }
 
     .app-version {
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
     }
 }
 
 @media (max-width: 360px) {
-    body {
-        padding: 0.6rem;
-    }
-
-    .layout {
-        gap: 0.85rem;
-    }
+    body { padding: 0.6rem; }
+    .layout { gap: 0.85rem; }
 
     .card {
-        padding: 0.75rem;
+        padding: 0.85rem;
         gap: 0.55rem;
-        border-radius: 0.85rem;
+        border-radius: 20px;
     }
 
     .card-icon {
-        width: 2.55rem;
-        height: 2.55rem;
-        font-size: 1.2rem;
-        border-radius: 0.8rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        font-size: 1.15rem;
+        border-radius: 10px;
     }
 
-    .card-title {
-        font-size: 0.9rem;
-    }
-
-    .card-desc {
-        font-size: 0.8rem;
-    }
+    .card-title { font-size: 0.88rem; }
+    .card-desc { font-size: 0.78rem; }
 
     .card-badge {
-        font-size: 0.66rem;
+        font-size: 0.64rem;
         padding: 0.2rem 0.45rem;
     }
 }
