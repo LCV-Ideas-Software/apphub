@@ -1,5 +1,12 @@
 # Changelog — AppHub
 
+## [v04.00.04] - 2026-03-31
+### Corrigido
+- **Compliance - docs legais locais em runtime**: o `LicencasModule` passou a carregar `LICENSE`, `NOTICE` e `THIRDPARTY` a partir de `public/legal/*` via `BASE_URL`, eliminando dependência de `raw.githubusercontent.com` no browser e removendo os 404 recorrentes em produção.
+
+### Controle de versão
+- `apphub`: APP v04.00.03 → APP v04.00.04
+
 ## [v04.00.03] - 2026-03-31
 ### Corrigido
 - **Compliance - GNU AGPLv3**: corrigido erro 404 no conteúdo descarregado do arquivo LICENSE, publicando o texto integral e atualizado da licença (~34KB) em conformidade técnica e jurídica.
