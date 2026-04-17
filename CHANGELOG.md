@@ -1,5 +1,11 @@
 # Changelog — AppHub
 
+## [v04.00.10] - 2026-04-17
+### Corrigido
+- `wrangler.json` deixou de declarar `observability` por ser config de Cloudflare Pages; os logs do GitHub Actions confirmaram a incompatibilidade com `wrangler 4.83.0`.
+### Motivação
+- Restaurar o deploy do `apphub` sem reintroduzir configuração inválida para Pages.
+
 ## [v04.00.09] - 2026-04-17
 ### Alterado
 - `wrangler.json` passou a declarar explicitamente `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.
