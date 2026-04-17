@@ -1,5 +1,13 @@
 # Changelog — AppHub
 
+## [v04.00.09] - 2026-04-17
+### Alterado
+- `wrangler.json` passou a declarar explicitamente `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.
+- `src/App.tsx`, `src/main.tsx`, `src/components/ComplianceBanner.tsx`, `src/modules/compliance/LicencasModule.tsx` e `package.json` foram saneados para o Biome atual, preservando a UX intencional dos cards e removendo bloqueios preexistentes do gate local.
+### Motivação
+- Alinhar o baseline de telemetria Cloudflare do `apphub` ao padrão operacional do workspace.
+
+
 ## [v04.00.08] - 2026-04-10
 ### Adicionado
 - **Biome 2.x**: lint + format com organizeImports

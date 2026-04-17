@@ -1,3 +1,13 @@
+## 2026-04-17 — AppHub v04.00.09 (wrangler observability + traces)
+### Escopo
+Padronização do baseline de observabilidade Cloudflare no `apphub`.
+### Alterado
+- `wrangler.json` agora garante `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.
+- `src/App.tsx`, `src/main.tsx`, `src/components/ComplianceBanner.tsx`, `src/modules/compliance/LicencasModule.tsx` e `package.json` foram saneados para o Biome atual, preservando a UX intencional dos cards e removendo bloqueios preexistentes do gate local.
+### Motivação
+- Alinhar o app ao padrão operacional do workspace para logs de invocação e traces.
+### Versão
+- APP v04.00.08 → APP v04.00.09
 ## 2026-04-10 — Biome 2.x + Vitest (v04.00.08)
 - Biome 2.x adicionado (lint + format — antes sem qualquer lint/format)
 - Vitest 4.1.4 adicionado (antes sem framework de testes)
@@ -70,4 +80,3 @@ Implementação de bloqueio em Edge para impedir a exposição pública de rotea
 - `calculadora-app`: middleware deployment, versioning handled internally
 - `apphub`: middleware deployment, versioning handled internally
 - `adminapps`: middleware deployment, versioning handled internally
-

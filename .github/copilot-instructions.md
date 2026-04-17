@@ -15,6 +15,18 @@
 
 # AI Memory Log - apphub
 
+## 2026-04-17 — AppHub v04.00.09 (wrangler observability + traces)
+### Escopo
+Padronização do baseline de observabilidade Cloudflare no `apphub`.
+### Alterado
+- `wrangler.json` agora garante `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.
+- `src/App.tsx`, `src/main.tsx`, `src/components/ComplianceBanner.tsx`, `src/modules/compliance/LicencasModule.tsx` e `package.json` foram saneados para o Biome atual, preservando a UX intencional dos cards e removendo bloqueios preexistentes do gate local.
+### Motivação
+- Alinhar o app ao padrão operacional do workspace para logs de invocação e traces.
+### Versão
+- APP v04.00.08 → APP v04.00.09
+
+
 ## 2026-04-08 — Restauração: Card URL Status Bar Suppression
 ### Escopo
 Restaurada funcionalidade que impede exibição da URL na barra de status do browser ao hover nos cards.
