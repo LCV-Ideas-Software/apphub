@@ -7,14 +7,6 @@
 
 
 ## 🧠 MEMÓRIA DE CONTEXTO ISOLADO (APPHUB)
-## 2026-04-10 — Biome 2.x + Vitest (v04.00.08)
-- Biome 2.x adicionado (lint + format — antes sem qualquer lint/format)
-- Vitest 4.1.4 adicionado (antes sem framework de testes)
-- vite 8.0.7 → 8.0.8
-- Dependabot groups: @vitest/* e @biomejs/* adicionados
-
-# AI Memory Log - apphub
-
 ## 2026-04-17 — AppHub v04.00.10 (Pages observability rollback after GHA failure)
 ### Escopo
 Hotfix de deploy no `apphub` após o GitHub Actions confirmar que `observability` não é suportado em config de Cloudflare Pages.
@@ -35,7 +27,13 @@ Padronização do baseline de observabilidade Cloudflare no `apphub`.
 - Alinhar o app ao padrão operacional do workspace para logs de invocação e traces.
 ### Versão
 - APP v04.00.08 → APP v04.00.09
+## 2026-04-10 — Biome 2.x + Vitest (v04.00.08)
+- Biome 2.x adicionado (lint + format — antes sem qualquer lint/format)
+- Vitest 4.1.4 adicionado (antes sem framework de testes)
+- vite 8.0.7 → 8.0.8
+- Dependabot groups: @vitest/* e @biomejs/* adicionados
 
+# AI Memory Log - apphub
 
 ## 2026-04-08 — Restauração: Card URL Status Bar Suppression
 ### Escopo
@@ -101,7 +99,6 @@ Implementação de bloqueio em Edge para impedir a exposição pública de rotea
 - `calculadora-app`: middleware deployment, versioning handled internally
 - `apphub`: middleware deployment, versioning handled internally
 - `adminapps`: middleware deployment, versioning handled internally
-
 
 
 > **DIRETIVA DE SEGURANÇA:** Ao sugerir código ou responder perguntas, leia rigorosamente o contexto e as memórias históricas acima para não divergir das decisões já tomadas pelo outro agente.
