@@ -1,9 +1,10 @@
 # apphub
 
-[![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-or-later-blue.svg)](./LICENSE)
+[![status: stable](https://img.shields.io/badge/status-stable-brightgreen.svg)](#status)
+[![version](https://img.shields.io/github/v/release/lcv-leo/apphub.svg)](https://github.com/lcv-leo/apphub/releases)
 [![runtime: Cloudflare Pages](https://img.shields.io/badge/runtime-Cloudflare%20Pages-orange.svg)](https://pages.cloudflare.com/)
 [![framework: React 19 + Vite 8](https://img.shields.io/badge/framework-React%2019%20%2B%20Vite%208-61dafb.svg)](https://react.dev/)
-[![D1 binding](https://img.shields.io/badge/storage-Cloudflare%20D1-blue.svg)](https://developers.cloudflare.com/d1/)
+[![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
 
 Cloudflare Pages portal hub. Static landing + PWA dispatcher routing visitors to a configurable set of sub-applications via a card-grid UI, backed by Cloudflare D1.
 
