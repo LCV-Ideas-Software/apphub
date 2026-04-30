@@ -1,5 +1,9 @@
 # Changelog — AppHub
 
+## [v04.00.12] - 2026-04-30
+### Alterado
+- `README.md` passou a seguir o novo padrão organizacional de abertura: logo harmonizado, bloco curto de status, tabela `The version history at a glance`, links públicos de release/clone corrigidos para `LCV-Ideas-Software/apphub` e manutenção explícita do GitHub Sponsors em `lcv-leo`.
+
 ## [v04.00.11] - 2026-04-26
 ### Alterado
 - **`.github/workflows/pages.yml`** — `actions/configure-pages@v6.0.0` passou a declarar `with: enablement: true` para idempotência em forks/clones que ainda não tenham GitHub Pages habilitado (corrige `Get Pages site failed... HTTP 404` em primeiro run).
